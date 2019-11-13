@@ -5,26 +5,60 @@ HINT: учти, что массив может быть пустым, или б�
 
 // const arr = [NaN, 19, 492, -10, 1, "HELLO", -34];
 
-function arrayMin(arr) {
-// Проверяем передан ли массив и не пустой ли он
-if (Array.isArray(arr) && arr.length > 0) {
+
+
+
+function arrayMin (arr) {
+
+  console.log(Number.isFinite(arr[1]))
   
-    let len = arr.length,
-      min1 = Infinity,
-      min2 = Infinity;
-    while (len--) {
-      if (Number(arr[len]) < min1) {
-        min1 = Number(arr[len]);
-      }
-      if (Number(arr[len]) < min2 && Number(arr[len]) != min1) {
-        min2 = Number(arr[len]);
-      }
-    }
-    console.log(min1 + min2)
-    return (min1 + min2);
-    
- 
-} else console.log("В функцию передан не массив или пустой массив");
+  
+switch (true) { 
+  case !Array.isArray(arr):
+      console.log('Argument is not array');
+      break;
+  case arr.length == 0:
+      console.log('Array is empty');
+      break;
+  // case !Number.isFinite(forecarr):
+  //     console.log('Array without numbers');
+  //     break;
+  default:
+      findMin(arr);
+}
+
+function findMin (arr) {
+  
+  let len = arr.length,
+  min1 = Infinity,
+  min2 = Infinity;
+while (len--) {
+  if (Number(arr[len]) < min1 && arr[len], Number.isFinite(arr[len]) ) {
+    min1 = Number(arr[len]);
+  }
+  if (Number(arr[len]) < min2 && Number(arr[len]) !== min1) {
+    min2 = Number(arr[len]);
+  }
+}
+console.log(min1 + min2)
+return (min1 + min2);
+}
 
 }
+// }
+
+//   switch (arr) {
+//     case !Array.isArray(arr):
+//       console.log('В функцию передан не массив');
+//       break;
+//     case Array.isArray(arr) && arr.length == 0:
+//       alert( 'В функцию передан пустой массив' );
+//       break;
+//   }
+
+
+
 arrayMin([4, 0, 3, 19, 492, -10, 1])
+
+
+module.exports = arrayMin
