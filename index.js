@@ -3,7 +3,7 @@
 Напиши минимум 3 модульных теста на эту функцию.
 HINT: учти, что массив может быть пустым, или без цифр или состоять из 100 млн. элементов, поэтому надо учесть разные граничные условия. */
 
-const arr = [NaN, 19, 492, -10, 1, "HELLO", -34];
+// const arr = [NaN, 19, 492, -10, 1, "HELLO", -34];
 
 function arrayMin(arr) {
 // Проверяем передан ли массив и не пустой ли он
@@ -20,9 +20,11 @@ if (Array.isArray(arr) && arr.length > 0) {
         min2 = Number(arr[len]);
       }
     }
-    return console.log(min1 + min2);
-  
+    console.log(min1 + min2)
+    return (min1 + min2);
+    
+ 
 } else console.log("В функцию передан не массив или пустой массив");
 
 }
-arrayMin(arr)
+arrayMin([4, 0, 3, 19, 492, -10, 1])
