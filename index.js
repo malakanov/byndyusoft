@@ -5,60 +5,50 @@ HINT: учти, что массив может быть пустым, или б�
 
 // const arr = [NaN, 19, 492, -10, 1, "HELLO", -34];
 
+// Number.isFinite(arr[len])
 
+function arrayMin(arr) {
 
-
-function arrayMin (arr) {
-
-  console.log(Number.isFinite(arr[1]))
-  
-  
-switch (true) { 
-  case !Array.isArray(arr):
-      console.log('Argument is not array');
+  switch (true) {
+    case !Array.isArray(arr):
+      console.log("Argument is not array");
       break;
-  case arr.length == 0:
-      console.log('Array is empty');
+    case arr.length == 0:
+      console.log("Array is empty");
       break;
-  // case !Number.isFinite(forecarr):
-  //     console.log('Array without numbers');
-  //     break;
-  default:
+    case arr.length == 1:
+      console.log("In array only one element");
+      break;
+    default:
       findMin(arr);
-}
-
-function findMin (arr) {
-  
-  let len = arr.length,
-  min1 = Infinity,
-  min2 = Infinity;
-while (len--) {
-  if (Number(arr[len]) < min1 && arr[len], Number.isFinite(arr[len]) ) {
-    min1 = Number(arr[len]);
   }
-  if (Number(arr[len]) < min2 && Number(arr[len]) !== min1) {
-    min2 = Number(arr[len]);
+
+  function findMin(arr) {
+    let min1 = arr[0];
+    let min2 = arr[0];
+
+    for (let i = 0; i < arr.length; ++i) {
+      
+      if (arr[i] < min1 && (arr[i]!== undefined && typeof(arr[i]) === 'number' && !isNaN(arr[i]))) {
+        min1 = arr[i];
+        
+      }
+    }
+    for (let i = 0; i < arr.length; ++i) {
+      if (arr[i] < min2 && arr[i] !== min1 && arr[i]!== undefined && typeof(arr[i]) === 'number' && !isNaN(arr[i])) {
+        min2 = arr[i];
+      }
+    }
+
+    console.log(min1);
+    console.log(min2);
+    console.log(min1 + min2);
+    return(min1 + min2)
   }
-}
-console.log(min1 + min2)
-return (min1 + min2);
-}
+
 
 }
-// }
 
-//   switch (arr) {
-//     case !Array.isArray(arr):
-//       console.log('В функцию передан не массив');
-//       break;
-//     case Array.isArray(arr) && arr.length == 0:
-//       alert( 'В функцию передан пустой массив' );
-//       break;
-//   }
+arrayMin([4, 0, 3, 19, 492, -10, 1]);
 
-
-
-arrayMin([4, 0, 3, 19, 492, -10, 1])
-
-
-module.exports = arrayMin
+module.exports = arrayMin;
